@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing - Otis AI | Transform Your Presentations with AI</title>
+    <meta name="description" content="Discover how Otis AI revolutionizes presentation creation. See features, testimonials, and success stories from businesses using our AI presentation builder.">
+    <meta name="keywords" content="AI presentation marketing, presentation features, business testimonials, presentation success stories">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Modern Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Full width for large screens */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 100%;
+                padding: 0 40px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                padding: 0 60px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .container {
+                padding: 0 80px;
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #6b7280;
+            margin: -2px 0 0 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .sign-in-btn {
+            text-decoration: none;
+            color: #8b5cf6;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .sign-in-btn:hover {
+            color: #7c3aed;
+        }
+
+        .go-to-app-btn {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .go-to-app-btn:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 120px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: #64748b;
+            margin-bottom: 48px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin-bottom: 48px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #8b5cf6;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #64748b;
+            margin-top: 8px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .primary-btn:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #8b5cf6;
+            text-decoration: none;
+            padding: 20px 40px;
+            border: 2px solid #8b5cf6;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .secondary-btn:hover {
+            background: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 48px;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 48px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .feature-list {
+            text-align: left;
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: #64748b;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .feature-list li::before {
+            content: 'âœ“';
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+            font-weight: bold;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 120px 0;
+            background: #f8fafc;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            color: #8b5cf6;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            color: #0f172a;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Success Stories Section */
+        .success-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .success-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+        }
+
+        .success-card {
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .success-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+        }
+
+        .success-metric {
+            font-size: 48px;
+            font-weight: 800;
+            color: #8b5cf6;
+            margin-bottom: 16px;
+        }
+
+        .success-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .success-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta-subtitle {
+            font-size: 20px;
+            margin-bottom: 48px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .cta-primary {
+            background: white;
+            color: #8b5cf6;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-primary:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            border: 2px solid white;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 64px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .footer-logo p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 48px;
+            padding-top: 32px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .success-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="favicon.png" alt="Otis Logo">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Otis AI</h1>
+                        <p>Presentation Builder</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="marketing.html">Marketing</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="signup.html" class="sign-in-btn">Sign In</a>
+                    <a href="generate.html" class="go-to-app-btn">Get Started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your <span class="hero-highlight">Presentations</span> with AI</h1>
+                <p>Join thousands of businesses creating stunning presentations in minutes, not hours. See why companies choose Otis AI.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100,000+</span>
+                        <span class="stat-label">Presentations Created</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Time Saved</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9/5</span>
+                        <span class="stat-label">User Rating</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="generate.html" class="primary-btn">Start Creating Now</a>
+                    <a href="#features" class="secondary-btn">See How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="features-container">
+                <h2 class="section-title">Why Choose Otis AI?</h2>
+                <p class="section-subtitle">Powerful features designed to make presentation creation effortless and professional.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ¤–</div>
+                        <h3>AI-Powered Generation</h3>
+                        <p>Our advanced AI analyzes your content and creates professional presentations automatically.</p>
+                        <ul class="feature-list">
+                            <li>Smart content analysis</li>
+                            <li>Automatic layout optimization</li>
+                            <li>Intelligent design suggestions</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">âš¡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Create stunning presentations in minutes, not hours. Focus on your content, not design.</p>
+                        <ul class="feature-list">
+                            <li>Generate in under 2 minutes</li>
+                            <li>One-click export options</li>
+                            <li>Real-time collaboration</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸŽ¨</div>
+                        <h3>Professional Templates</h3>
+                        <p>Access hundreds of professionally designed templates for every industry and use case.</p>
+                        <ul class="feature-list">
+                            <li>Industry-specific designs</li>
+                            <li>Customizable layouts</li>
+                            <li>Brand consistency tools</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ‘¥</div>
+                        <h3>Team Collaboration</h3>
+                        <p>Work together seamlessly with your team. Share, comment, and collaborate in real-time.</p>
+                        <ul class="feature-list">
+                            <li>Real-time editing</li>
+                            <li>Comment and feedback system</li>
+                            <li>Version control</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ“Š</div>
+                        <h3>Analytics & Insights</h3>
+                        <p>Track engagement and get insights on how your presentations perform.</p>
+                        <ul class="feature-list">
+                            <li>View tracking</li>
+                            <li>Engagement metrics</li>
+                            <li>Performance analytics</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ”’</div>
+                        <h3>Enterprise Security</h3>
+                        <p>Bank-level security with advanced encryption and compliance standards.</p>
+                        <ul class="feature-list">
+                            <li>End-to-end encryption</li>
+                            <li>SOC 2 compliance</li>
+                            <li>GDPR ready</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">Don't just take our word for it. Here's what real users have to say about Otis AI.</p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Otis AI has completely transformed how we create presentations. What used to take our team hours now takes minutes. The quality is outstanding and our clients are impressed.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EM</div>
+                            <div class="author-info">
+                                <h4>Esther Mitchell</h4>
+                                <p>Marketing Director, Johnsons</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The AI suggestions are incredibly smart. It understands our brand and creates presentations that perfectly match our style. We've saved so much time and our presentations look more professional than ever.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DML</div>
+                            <div class="author-info">
+                                <h4>David Mark-lewis</h4>
+                                <p>Project Manager, Yorkshire Water</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">As a consultant, I need to create presentations quickly for different clients. Otis AI adapts to each client's needs and creates presentations that wow them every time. It's like having a design team in my pocket.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">IS</div>
+                            <div class="author-info">
+                                <h4>Ijeoma Stella</h4>
+                                <p>Business Consultant</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The collaboration features are game-changing. Our entire team can work on presentations together, and the real-time updates make everything seamless. It's revolutionized our workflow.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LLM</div>
+                            <div class="author-info">
+                                <h4>LIU Lee-Mao</h4>
+                                <p>Product Manager, InnovativeUK</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">I was skeptical about AI-generated presentations, but Otis AI exceeded all my expectations. The presentations are not just good, they're exceptional. Our sales team's conversion rates have improved significantly.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ESJ</div>
+                            <div class="author-info">
+                                <h4>Emily Sarah-Jane</h4>
+                                <p>Sales Director, Google</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The templates are incredibly diverse and the customization options are endless. Whether it's a pitch deck or a quarterly report, Otis AI creates exactly what we need. Highly recommended!</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RT</div>
+                            <div class="author-info">
+                                <h4>Robert Taylor</h4>
+                                <p>Operations Manager, TESLA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-section">
+        <div class="container">
+            <div class="success-container">
+                <h2 class="section-title">Proven Results</h2>
+                <p class="section-subtitle">See the measurable impact Otis AI has had on businesses like yours.</p>
+                
+                <div class="success-grid">
+                    <div class="success-card">
+                        <div class="success-metric">85%</div>
+                        <h3 class="success-title">Faster Creation</h3>
+                        <p class="success-description">Average time reduction for presentation creation across all users.</p>
+                    </div>
+
+                    <div class="success-card">
+                        <div class="success-metric">3x</div>
+                        <h3 class="success-title">More Engaged</h3>
+                        <p class="success-description">Audiences are 3x more engaged with AI-generated presentations.</p>
+                    </div>
+
+                    <div class="success-card">
+                        <div class="success-metric">92%</div>
+                        <h3 class="success-title">Client Satisfaction</h3>
+                        <p class="success-description">Of clients report higher satisfaction with presentation quality.</p>
+                    </div>
+
+                    <div class="success-card">
+                        <div class="success-metric">$50K</div>
+                        <h3 class="success-title">Average Savings</h3>
+                        <p class="success-description">Annual cost savings from reduced design and creation time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2 class="cta-title">Ready to Transform Your Presentations?</h2>
+                <p class="cta-subtitle">Join thousands of businesses already using Otis AI to create stunning presentations in minutes.</p>
+                
+                <div class="cta-buttons">
+                    <a href="generate.html" class="cta-primary">Start Free Trial</a>
+                    <a href="pricing.html" class="cta-secondary">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Otis AI</h3>
+                    <p>Otis AI makes presentation easier to create.</p>
+                    <p>@2025 Otis Technologies inc</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="signup.html">Get Started</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="templates.html">Templates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Socials</h4>
+                    <ul>
+                       <li><a href="https://www.instagram.com/appotisinsta" target="_blank">Instagram</a></li>
+                       <li><a href="https://www.tiktok.com/@iosappscreator" target="_blank">TikTok</a></li>
+                       <li><a href="https://www.linkedin.com/in/hokfam-ltd" target="_blank">LinkedIn</a></li>
+                       <li><a href="https://x.com/appotis" target="_blank">X</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Privacy</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Otis Technologies Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards, testimonials, and success cards
+        document.querySelectorAll('.feature-card, .testimonial-card, .success-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+
+        // Add hover effects to buttons
+        document.querySelectorAll('.primary-btn, .secondary-btn, .cta-primary, .cta-secondary').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

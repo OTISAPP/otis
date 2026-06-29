@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Otis AI Presentation Builder</title>
+    <meta name="description" content="Otis Technologies Privacy Policy - Learn how we collect, use, and protect your personal information when using our AI presentation builder.">
+    <meta name="keywords" content="Otis privacy policy, data protection, user privacy, AI presentation builder privacy">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #6b7280;
+            margin: -2px 0 0 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .sign-in-btn {
+            text-decoration: none;
+            color: #8b5cf6;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .sign-in-btn:hover {
+            color: #7c3aed;
+        }
+
+        .go-to-app-btn {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .go-to-app-btn:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .content-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .content-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .effective-date {
+            font-size: 18px;
+            font-weight: 600;
+            color: #6b7280;
+        }
+
+        .content-body {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .intro-text {
+            margin-bottom: 48px;
+            font-size: 18px;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .policy-section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .section-content {
+            margin-bottom: 16px;
+        }
+
+        .subsection {
+            margin-bottom: 12px;
+        }
+
+        .subsection-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .contact-email {
+            color: #8b5cf6;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            color: #7c3aed;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: 'Otis';
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 200px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-content p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #8b5cf6;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #f9fafb;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 64px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .footer-logo p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 48px;
+            padding-top: 32px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .content-title {
+                font-size: 36px;
+            }
+
+            .cta-content h2 {
+                font-size: 32px;
+            }
+
+            .cta-section::before {
+                font-size: 120px;
+                right: -30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 60px 0;
+            }
+
+            .content-title {
+                font-size: 28px;
+            }
+
+            .cta-section {
+                padding: 60px 0;
+            }
+
+            .cta-content h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="favicon.png" alt="Otis Logo" width="32" height="32">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Otis</h1>
+                        <p>AI Presentation Builder</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Product</a></li>
+                    <li><a href="templates.html">Template</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="signup.html" class="sign-in-btn">Sign in</a>
+                    <a href="https://apple.co/4eHwZnF" class="go-to-app-btn" target="_blank">Go to App</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content loading">
+        <div class="container">
+            <div class="content-header">
+                <h1 class="content-title">Otis App & Web - Privacy policy</h1>
+                <p class="effective-date">Effective Date: 13/06/2025</p>
+            </div>
+
+            <div class="content-body">
+                <p class="intro-text">
+                    At Otis Technologies, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our web and mobile applications.
+                </p>
+
+                <div class="policy-section">
+                    <h2 class="section-title">1. Information We Collect</h2>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">a. Account Information</h3>
+                        <p class="section-content">When you create an account, we collect your name, email address, and password to provide you with access to our services.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">b. Usage Data</h3>
+                        <p class="section-content">We collect data about how you use our app, including which features you access, your presentation activity, and interaction patterns. This helps us improve our functionality and personalize your experience.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">c. AI Input Data</h3>
+                        <p class="section-content">When you use our AI features, we process your prompts and slide content through third-party AI APIs (such as OpenAI, GammaAI) to generate outputs. Your input data may be temporarily logged for performance monitoring and security purposes.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">d. Billing Information</h3>
+                        <p class="section-content">For paid subscriptions, we collect payment information which is processed securely through Stripe (Web) or Apple/Google (Mobile). We do not store your full payment details on our servers.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">e. Device Information</h3>
+                        <p class="section-content">We collect information about your device type, browser, operating system, IP address, and session logs for analytics and security purposes.</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">2. How We Use Your Information</h2>
+                    <p class="section-content">We use your information to:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Deliver and improve our app features and services</li>
+                        <li>Provide customer support and respond to your inquiries</li>
+                        <li>Manage billing and subscription services</li>
+                        <li>Send you updates, notifications, and important service information</li>
+                        <li>Analyze platform usage to improve system integrity and user experience</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">3. Sharing of Information</h2>
+                    <p class="section-content">We do not sell your personal information. We may share your data with trusted third-party partners (including OpenAI, GammaAI, Stripe, and Firebase) who help us operate and maintain our services. All partners are bound by strict confidentiality and data protection requirements.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">4. Data Storage and Security</h2>
+                    <p class="section-content">We implement industry-standard encryption and access controls to protect your data. Your information is stored securely using GDPR- and CCPA-compliant cloud providers with robust security measures.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">5. Your Rights</h2>
+                    <p class="section-content">Depending on your location, you may have the right to:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Access your personal data</li>
+                        <li>Request deletion or correction of your information</li>
+                        <li>Object to certain processing activities</li>
+                        <li>Withdraw consent where applicable</li>
+                    </ul>
+                    <p class="section-content">To exercise these rights, please contact us at <a href="mailto:otisappteam@otisapp.com" class="contact-email">otisappteam@otisapp.com</a></p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">6. Data Retention</h2>
+                    <p class="section-content">We retain your data for as long as necessary to provide our services and comply with legal obligations. Inactive accounts are automatically purged after 18 months of inactivity.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">7. Children's Privacy</h2>
+                    <p class="section-content">Otis is not intended for users under 13 years of age. We do not knowingly collect personal information from children under 13 without verifiable parental consent.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">8. Changes to This Policy</h2>
+                    <p class="section-content">We may update this Privacy Policy periodically. We will notify you of any significant changes via email or through an in-app notice.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="section-title">9. Contact Us</h2>
+                    <p class="section-content">If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:otisappteam@otisapp.com" class="contact-email">otisappteam@otisapp.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section loading">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Get Started for free</h2>
+                <p>Generate your presentation with AI in seconds</p>
+                <a href="https://apple.co/4eHwZnF" class="cta-button" target="_blank">Generate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer loading">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Otis</h3>
+                    <p>Otis makes presentation easier to create.</p>
+                    <p>@2025 Otis Technologies inc</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="templates.html">Templates</a></li>
+                        <li><a href="#inspirations">Inspirations</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="about.html">Team</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Socials</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/appotisinsta" target="_blank">Instagram</a></li>
+<li><a href="https://www.tiktok.com/@iosappscreator" target="_blank">TikTok</a></li>
+<li><a href="https://www.linkedin.com/in/hokfam-ltd" target="_blank">LinkedIn</a></li>
+<li><a href="https://x.com/appotis" target="_blank">X</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Privacy</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Otis Technologies Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            const loadingElements = document.querySelectorAll('.loading');
+            loadingElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Analytics tracking
+        function trackEvent(eventName, properties = {}) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, properties);
+            }
+        }
+
+        // Track button clicks
+        document.querySelectorAll('.cta-button, .go-to-app-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                trackEvent('button_click', {
+                    button_text: this.textContent.trim(),
+                    button_location: 'privacy_page'
+                });
+            });
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTDE2HXY86"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JTDE2HXY86');
+    </script>
+</body>
+</html>

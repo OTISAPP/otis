@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Otis - AI Presentation Builder | Our Story & Mission</title>
+    <meta name="description" content="Learn about Otis, the AI-powered presentation builder that's revolutionizing how professionals create stunning presentations. Discover our mission, team, and vision for the future.">
+    <meta name="keywords" content="about Otis, AI presentation builder, company story, team, mission, vision">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #6b7280;
+            margin: -2px 0 0 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-links a.active {
+            color: #8b5cf6;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .sign-in-btn {
+            text-decoration: none;
+            color: #8b5cf6;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .sign-in-btn:hover {
+            color: #7c3aed;
+        }
+
+        .go-to-app-btn {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .go-to-app-btn:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #111827;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 64px;
+            color: #111827;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 48px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Story Section */
+        .story-section {
+            background: white;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-text h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #111827;
+        }
+
+        .story-text p {
+            font-size: 18px;
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .story-visual {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .story-visual h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .story-visual p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: #f9fafb;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+        }
+
+        .mission-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            color: white;
+        }
+
+        .mission-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+
+        .mission-card p {
+            font-size: 16px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            background: #f9fafb;
+            padding: 32px;
+            border-radius: 16px;
+            transition: transform 0.2s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-4px);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 48px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .member-role {
+            font-size: 16px;
+            color: #8b5cf6;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .member-bio {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: #f9fafb;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+
+        .value-card:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .value-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+
+        .value-card p {
+            font-size: 16px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+
+        .cta-content p {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 64px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .footer-logo p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 48px;
+            padding-top: 32px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="favicon.png" alt="Otis Logo" width="32" height="32">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Otis</h1>
+                        <p>AI Presentation Builder</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Product</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="signup.html" class="sign-in-btn">Sign in</a>
+                    <a href="https://apple.co/4eHwZnF" class="go-to-app-btn" target="_blank">Go to App</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero loading">
+        <div class="container">
+            <div class="hero-content">
+                <h1>About <span class="hero-highlight">Otis AI</span></h1>
+                <p>We're on a mission to democratize presentation creation by making it accessible, intelligent, and effortless for everyone. Otis AI is a presentation builder that uses AI to create stunning presentations in seconds. Join thousands of professionals who trust Otis for their presentations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section story-section loading">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <h3>Born from a Simple Problem</h3>
+                    <p>Otis was founded in 2024 when our team realized that creating professional presentations was unnecessarily complex and time-consuming. We saw brilliant ideas getting lost in poor design and hours of formatting work.</p>
+                    <p>We believed that everyone should be able to create stunning presentations that match their ideas, regardless of their design skills or available time.</p>
+                    <p>Today, Otis has helped thousands of professionals, entrepreneurs, and teams transform their ideas into compelling presentations in seconds, not hours.</p>
+                </div>
+                <div class="story-visual">
+                    <h4>2024</h4>
+                    <p>Otis was born with a vision to revolutionize presentation creation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section mission-section loading">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-subtitle">We're building the future of presentation creation, where AI and human creativity work together seamlessly.</p>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-icon"></div>
+                    <h3>Democratize Design</h3>
+                    <p>Make professional presentation design accessible to everyone, regardless of their technical skills or design background.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon"></div>
+                    <h3>Save Time</h3>
+                    <p>Reduce presentation creation time from hours to minutes, so you can focus on what matters most - your content and ideas.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon"></div>
+                    <h3>Enhance Impact</h3>
+                    <p>Help every presentation make a lasting impression with intelligent design suggestions and professional templates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section loading">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">The passionate individuals behind Otis, working to make presentation creation effortless for everyone.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">IEA</div>
+                    <h3 class="member-name">Ikechukwu Emmanuel Arum</h3>
+                    <p class="member-role">Founder & Ceo, Snr Lead Dev</p>
+                    <p class="member-bio">Product manager at Severn trent with 10+ years in AI and design. Passionate about making technology accessible to everyone.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">MS</div>
+                    <h3 class="member-name">Moon Stone</h3>
+                    <p class="member-role">CTO</p>
+                    <p class="member-bio">AI researcher and former engineering lead at Microsoft. Expert in machine learning and natural language processing.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">HA</div>
+                    <h3 class="member-name">Hameed Afolabi</h3>
+                    <p class="member-role">Head of Design</p>
+                    <p class="member-bio">Award-winning designer with experience at Apple and Airbnb. Believes great design should be invisible and intuitive.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">EA</div>
+                    <h3 class="member-name">Emeka A Arum</h3>
+                    <p class="member-role">Head of Engineering</p>
+                    <p class="member-bio">Full-stack engineer with expertise in scalable systems. Former tech lead at Stripe, passionate about building reliable products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values-section loading">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"></div>
+                    <h3>Creativity First</h3>
+                    <p>We believe technology should amplify human creativity, not replace it. Our AI enhances your ideas, making them more impactful.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"></div>
+                    <h3>User-Centric</h3>
+                    <p>Every feature we build starts with understanding our users' needs. We're committed to creating tools that truly serve you.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"></div>
+                    <h3>Privacy & Security</h3>
+                    <p>Your data and content are sacred. We implement the highest security standards to protect your information and intellectual property.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"></div>
+                    <h3>Accessibility</h3>
+                    <p>Great tools should be available to everyone. We're building Otis to be inclusive and accessible across all devices and abilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section loading">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">100,000+</div>
+                    <div class="stat-label">Presentations Created</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section loading">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Presentations?</h2>
+                <p>Join thousands of professionals who are already creating stunning presentations with Otis.</p>
+                <a href="https://apple.co/4eHwZnF" class="cta-button" target="_blank">Get Started Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer loading">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Otis AI</h3>
+                    <p>Otis AI makes presentation easier to create.</p>
+                    <p>@2025 Otis Technologies inc</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="signup.html">Get Started</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="about.html">About</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Socials</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/appotisinsta" target="_blank">Instagram</a></li>
+<li><a href="https://www.tiktok.com/@iosappscreator" target="_blank">TikTok</a></li>
+<li><a href="https://www.linkedin.com/in/hokfam-ltd" target="_blank">LinkedIn</a></li>
+<li><a href="https://x.com/appotis" target="_blank">X</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Privacy</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                     
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Otis Technologies Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            const loadingElements = document.querySelectorAll('.loading');
+            loadingElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Analytics tracking (replace with your analytics code)
+        function trackEvent(eventName, properties = {}) {
+            // Google Analytics 4 example
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, properties);
+            }
+        }
+
+        // Track button clicks
+        document.querySelectorAll('.cta-button, .go-to-app-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                trackEvent('button_click', {
+                    button_text: this.textContent.trim(),
+                    button_location: 'about_page'
+                });
+            });
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTDE2HXY86"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JTDE2HXY86');
+    </script>
+</body>
+</html>

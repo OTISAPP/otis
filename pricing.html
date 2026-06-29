@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Otis AI Presentation Builder | Choose Your Plan</title>
+    <meta name="description" content="Choose the perfect plan for your presentation needs. Start free with Otis AI Presentation Builder or upgrade to unlock advanced features and unlimited presentations.">
+    <meta name="keywords" content="Otis pricing, AI presentation pricing, presentation builder plans, subscription plans">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #6b7280;
+            margin: -2px 0 0 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-links a.active {
+            color: #8b5cf6;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .sign-in-btn {
+            text-decoration: none;
+            color: #8b5cf6;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .sign-in-btn:hover {
+            color: #7c3aed;
+        }
+
+        .go-to-app-btn {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .go-to-app-btn:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #111827;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+            color: #8b5cf6;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+            background: white;
+            overflow: visible;
+        }
+
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #f3f4f6;
+            padding: 8px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .toggle-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b7280;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 32px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #d1d5db;
+            transition: 0.3s;
+            border-radius: 32px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 4px;
+            background: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: #8b5cf6;
+        }
+
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(28px);
+        }
+
+        .discount-badge {
+            background: #10b981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px 0;
+            overflow: visible;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #f1f5f9;
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-color: #8b5cf6;
+        }
+
+        .pro-plan {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+            color: white;
+            border: 2px solid #8b5cf6;
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.4);
+            overflow: visible;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pro-plan:hover {
+            transform: scale(1.05) translateY(-8px);
+            box-shadow: 0 35px 60px -12px rgba(139, 92, 246, 0.5);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .pro-plan .plan-badge {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .plan-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 24px 0 16px 0;
+            color: #111827;
+        }
+
+        .pro-plan .plan-title {
+            color: white;
+        }
+
+        .plan-description {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .pro-plan .plan-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .plan-price {
+            margin: 24px 0 16px 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .price-amount {
+            font-size: 56px;
+            font-weight: 900;
+            color: #111827;
+            line-height: 1;
+        }
+
+        .pro-plan .price-amount {
+            color: white;
+        }
+
+        .price-period {
+            font-size: 18px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .pro-plan .price-period {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pro-plan .price-period {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .billing-info {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+
+        .pro-plan .billing-info {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pro-plan .plan-features li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .feature-icon {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .pro-plan .feature-icon {
+            color: #10b981;
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .plan-button:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .pro-button {
+            background: white;
+            color: #8b5cf6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .pro-button:hover {
+            background: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Features Comparison */
+        .features-section {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+
+        .features-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .features-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .features-table th,
+        .features-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .features-table th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .features-table .feature-name {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .features-table .plan-cell {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .features-table .check {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .features-table .cross {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .faq-item {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Team Contact */
+        .team-contact {
+            text-align: center;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 500px;
+            margin: 0 auto 48px;
+        }
+
+        .team-contact h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+
+        .team-contact p {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        .contact-sales {
+            color: #8b5cf6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: 2px solid #8b5cf6;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .contact-sales:hover {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-content p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #8b5cf6;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #f9fafb;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 64px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .footer-logo p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 48px;
+            padding-top: 32px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pro-plan {
+                transform: none;
+            }
+
+            .pro-plan:hover {
+                transform: translateY(-4px);
+            }
+
+            .features-table {
+                overflow-x: auto;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .pricing-section,
+            .features-section,
+            .faq-section,
+            .cta-section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="favicon.png" alt="Otis Logo" width="32" height="32">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Otis</h1>
+                        <p>AI Presentation Builder</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Product</a></li>
+                    <li><a href="pricing.html" class="active">Pricing</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="signup.html" class="sign-in-btn">Sign in</a>
+                    <a href="https://apple.co/4eHwZnF" class="go-to-app-btn" target="_blank">Go to App</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero loading">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Choose the perfect plan for <span class="hero-highlight">your needs</span></h1>
+                <p>Start free and scale as you grow. No hidden fees, no surprises. Cancel anytime.</p>
+                <div class="hero-badges">
+                    <div class="badge">✓ No credit card required</div>
+                    <div class="badge">✓ Cancel anytime</div>
+                    <div class="badge">✓ 14-day free trial</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section loading">
+        <div class="container">
+            <!-- Pricing Toggle -->
+            <div class="pricing-toggle">
+                <div class="toggle-container">
+                    <span class="toggle-label">Pay monthly</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="pricingToggle" onchange="togglePricing()">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-label">Pay yearly</span>
+                    <span class="discount-badge">Save 17%</span>
+                </div>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-cards">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-badge">No credit card required</div>
+                    <h3 class="plan-title">Free</h3>
+                    <p class="plan-description">Basic features to help you create simple decks and sites.</p>
+                    <div class="plan-price">
+                        <span class="price-amount">$0</span>
+                        <span class="price-period">/ Per month</span>
+                    </div>
+                    <p class="billing-info">Always free, no commitment</p>
+                    <ul class="plan-features">
+                        <li><span class="feature-icon">✓</span> 5 Presentations</li>
+                        <li><span class="feature-icon">✓</span> Basic Templates</li>
+                        <li><span class="feature-icon">✓</span> Limited AI generation</li>
+                        <li><span class="feature-icon">✓</span> Export as PDF</li>
+                        <li><span class="feature-icon">✓</span> Community Support</li>
+                    </ul>
+                    <button class="plan-button" onclick="selectPlan('free')">Get Started</button>
+                </div>
+
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="plan-badge">2% OFF</div>
+                    <h3 class="plan-title">Starter</h3>
+                    <p class="plan-description">Limited AI and custom branding to elevate your workflow.</p>
+                       <div class="plan-price">
+                           <span class="price-amount monthly-price">$3.99</span>
+                           <span class="price-amount yearly-price" style="display: none;">$47.88</span>
+                           <span class="price-period">/ Per month</span>
+                       </div>
+                       <p class="billing-info monthly-billing">Billed monthly</p>
+                       <p class="billing-info yearly-billing" style="display: none;">Billed yearly</p>
+                    <ul class="plan-features">
+                        <li><span class="feature-icon">✓</span> 25 Presentations</li>
+                        <li><span class="feature-icon">✓</span> Basic Templates themes</li>
+                        <li><span class="feature-icon">✓</span> Email Support</li>
+                        <li><span class="feature-icon">✓</span> Standard AI generation</li>
+                        <li><span class="feature-icon">✓</span> Export as PDF</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/3cIfZj0Ks2hP54dbXy0co07" class="plan-button" target="_blank">Get Started</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card pro-plan">
+                    <div class="plan-badge">2% OFF</div>
+                    <h3 class="plan-title">Pro</h3>
+                    <p class="plan-description">Unlimited AI and custom branding to elevate your workflow.</p>
+                       <div class="plan-price">
+                           <span class="price-amount monthly-price">$17.50</span>
+                           <span class="price-amount yearly-price" style="display: none;">$39.99</span>
+                           <span class="price-period">/ Per month</span>
+                       </div>
+                       <p class="billing-info monthly-billing">Billed monthly</p>
+                       <p class="billing-info yearly-billing" style="display: none;">Billed yearly</p>
+                    <ul class="plan-features">
+                        <li><span class="feature-icon">✓</span> Unlimited presentations</li>
+                        <li><span class="feature-icon">✓</span> Premium presentations</li>
+                        <li><span class="feature-icon">✓</span> Custom branding</li>
+                        <li><span class="feature-icon">✓</span> Priority support</li>
+                        <li><span class="feature-icon">✓</span> Advanced AI generation</li>
+                        <li><span class="feature-icon">✓</span> Collaboration features</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/5kQ6oJgJq09HfIRaTu0co08" class="plan-button pro-button" target="_blank">Get Started</a>
+                </div>
+            </div>
+
+            <!-- Team Contact -->
+            <div class="team-contact">
+                <h3>Ready to get Otis for your team?</h3>
+                <p>Contact our sales team for custom pricing and enterprise features.</p>
+                <a href="#" class="contact-sales">otisappteam@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Comparison Section -->
+    <section class="features-section loading">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 48px; font-weight: 700; margin-bottom: 48px; color: #111827;">Compare Features</h2>
+            <div class="features-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th class="plan-cell">Free</th>
+                            <th class="plan-cell">Starter</th>
+                            <th class="plan-cell">Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">Presentations per month</td>
+                            <td class="plan-cell">5</td>
+                            <td class="plan-cell">25</td>
+                            <td class="plan-cell">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">AI Generation</td>
+                            <td class="plan-cell">Limited</td>
+                            <td class="plan-cell">Standard</td>
+                            <td class="plan-cell">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Templates</td>
+                            <td class="plan-cell">Basic</td>
+                            <td class="plan-cell">Basic + Themes</td>
+                            <td class="plan-cell">Premium</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Custom Branding</td>
+                            <td class="plan-cell"><span class="cross">✗</span></td>
+                            <td class="plan-cell"><span class="cross">✗</span></td>
+                            <td class="plan-cell"><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Export Formats</td>
+                            <td class="plan-cell">PDF</td>
+                            <td class="plan-cell">PDF</td>
+                            <td class="plan-cell">PDF, PPTX, HTML</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Support</td>
+                            <td class="plan-cell">Community</td>
+                            <td class="plan-cell">Email</td>
+                            <td class="plan-cell">Priority</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Collaboration</td>
+                            <td class="plan-cell"><span class="cross">✗</span></td>
+                            <td class="plan-cell"><span class="cross">✗</span></td>
+                            <td class="plan-cell"><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Analytics</td>
+                            <td class="plan-cell"><span class="cross">✗</span></td>
+                            <td class="plan-cell"><span class="cross">✗</span></td>
+                            <td class="plan-cell"><span class="check">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section loading">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 48px; font-weight: 700; margin-bottom: 48px; color: #111827;">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I change my plan anytime?</h3>
+                    <p class="faq-answer">Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">What happens to my presentations if I cancel?</h3>
+                    <p class="faq-answer">Your presentations remain accessible for 30 days after cancellation. You can export them or reactivate your account to continue accessing them.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you offer refunds?</h3>
+                    <p class="faq-answer">We offer a 30-day money-back guarantee for all paid plans. If you're not satisfied, contact our support team for a full refund.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Is there a free trial for paid plans?</h3>
+                    <p class="faq-answer">Yes! All paid plans come with a 14-day free trial. No credit card required to start your trial.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">What payment methods do you accept?</h3>
+                    <p class="faq-answer">We accept all major credit cards (Visa, MasterCard, American Express) and PayPal. All payments are processed securely through Stripe.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I get a custom plan for my organization?</h3>
+                    <p class="faq-answer">Absolutely! Contact our sales team for custom pricing, volume discounts, and enterprise features tailored to your organization's needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section loading">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Join thousands of professionals creating stunning presentations with Otis.</p>
+                <a href="https://apple.co/4eHwZnF" class="cta-button" target="_blank">Start Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer loading">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Otis AI</h3>
+                    <p>Otis AI makes presentation easier to create.</p>
+                    <p>@2025 Otis Technologies inc</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="signup.html">Get Started</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="about.html">About</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Socials</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/appotisinsta" target="_blank">Instagram</a></li>
+<li><a href="https://www.tiktok.com/@iosappscreator" target="_blank">TikTok</a></li>
+<li><a href="https://www.linkedin.com/in/hokfam-ltd" target="_blank">LinkedIn</a></li>
+<li><a href="https://x.com/appotis" target="_blank">X</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Privacy</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="privacy.html">Privacy policy</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Otis Technologies Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function togglePricing() {
+            const toggle = document.getElementById('pricingToggle');
+            const monthlyPrices = document.querySelectorAll('.monthly-price');
+            const yearlyPrices = document.querySelectorAll('.yearly-price');
+            const monthlyBilling = document.querySelectorAll('.monthly-billing');
+            const yearlyBilling = document.querySelectorAll('.yearly-billing');
+            
+            // Get the pricing buttons
+            const starterButton = document.querySelector('.pricing-card:nth-child(2) .plan-button');
+            const proButton = document.querySelector('.pricing-card:nth-child(3) .plan-button');
+            
+            if (toggle.checked) {
+                // Show yearly pricing
+                monthlyPrices.forEach(price => price.style.display = 'none');
+                yearlyPrices.forEach(price => price.style.display = 'inline');
+                monthlyBilling.forEach(billing => billing.style.display = 'none');
+                yearlyBilling.forEach(billing => billing.style.display = 'block');
+                
+                // Update Stripe links for yearly pricing
+                if (starterButton) {
+                    starterButton.href = 'https://buy.stripe.com/dRm4gB64M8Gd68hf9K0co09';
+                }
+                if (proButton) {
+                    proButton.href = 'https://buy.stripe.com/fZueVf78Q9Kh54d0eQ0co0a';
+                }
+            } else {
+                // Show monthly pricing
+                monthlyPrices.forEach(price => price.style.display = 'inline');
+                yearlyPrices.forEach(price => price.style.display = 'none');
+                monthlyBilling.forEach(billing => billing.style.display = 'block');
+                yearlyBilling.forEach(billing => billing.style.display = 'none');
+                
+                // Update Stripe links for monthly pricing
+                if (starterButton) {
+                    starterButton.href = 'https://buy.stripe.com/3cIfZj0Ks2hP54dbXy0co07';
+                }
+                if (proButton) {
+                    proButton.href = 'https://buy.stripe.com/5kQ6oJgJq09HfIRaTu0co08';
+                }
+            }
+        }
+
+        function selectPlan(planType) {
+            // Track plan selection
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'plan_selected', {
+                    event_category: 'pricing',
+                    event_label: planType,
+                    value: planType === 'free' ? 0 : planType === 'starter' ? 3.99 : 17.5
+                });
+            }
+
+            // Redirect to signup with plan selection
+            localStorage.setItem('selectedPlan', planType);
+            window.location.href = 'signup.html';
+        }
+
+        // Function to simulate successful payment and redirect to dashboard
+        function simulateSuccessfulPayment(planType) {
+            // This would normally be called after successful Stripe payment
+            const dashboardUrl = `dashboard.html?subscription=${planType}`;
+            window.location.href = dashboardUrl;
+        }
+
+        // Check for successful payment redirect from Stripe
+        function checkForPaymentSuccess() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const paymentSuccess = urlParams.get('payment_success');
+            const planType = urlParams.get('plan');
+            
+            if (paymentSuccess === 'true' && planType) {
+                // Simulate successful payment
+                simulateSuccessfulPayment(planType);
+            }
+        }
+
+        // Loading animation
+        window.addEventListener('load', function() {
+            checkForPaymentSuccess();
+            
+            const loadingElements = document.querySelectorAll('.loading');
+            loadingElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Analytics tracking
+        function trackEvent(eventName, properties = {}) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, properties);
+            }
+        }
+
+        // Track button clicks
+        document.querySelectorAll('.cta-button, .go-to-app-btn, .contact-sales').forEach(button => {
+            button.addEventListener('click', function() {
+                trackEvent('button_click', {
+                    button_text: this.textContent.trim(),
+                    button_location: 'pricing_page'
+                });
+            });
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTDE2HXY86"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JTDE2HXY86');
+    </script>
+</body>
+</html>

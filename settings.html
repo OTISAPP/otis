@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Otis AI Presentation Builder</title>
+    <meta name="description" content="Manage your Otis account settings, preferences, and privacy options.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #111827;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .back-btn {
+            background: #f3f4f6;
+            color: #374151;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            background: #e5e7eb;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .settings-header {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .settings-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .settings-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .settings-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info {
+            flex: 1;
+        }
+
+        .setting-label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+
+        .setting-description {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #8b5cf6;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.2s;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #7c3aed;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .danger-zone {
+            border: 2px solid #fef2f2;
+            background: #fefefe;
+        }
+
+        .danger-zone .card-title {
+            color: #dc2626;
+        }
+
+        .success-message {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .error-message {
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .settings-header {
+                padding: 24px;
+            }
+
+            .settings-card {
+                padding: 24px;
+            }
+
+            .setting-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="favicon.png" alt="Otis Logo" width="40" height="40">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Otis</h1>
+                        <p>AI Presentation Builder</p>
+                    </div>
+                </a>
+                <a href="profile.html" class="back-btn">
+                    ← Back to Profile
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content loading">
+        <div class="container">
+            <!-- Settings Header -->
+            <div class="settings-header">
+                <h1 class="settings-title">Settings</h1>
+                <p class="settings-subtitle">Manage your account preferences and privacy settings</p>
+            </div>
+
+            <!-- Settings Grid -->
+            <div class="settings-grid">
+                <!-- Profile Settings -->
+                <div class="settings-card">
+                    <h2 class="card-title">
+                        👤 Profile Settings
+                    </h2>
+                    
+                    <div class="success-message" id="profileSuccess">
+                        Profile updated successfully!
+                    </div>
+                    
+                    <div class="error-message" id="profileError">
+                        Error updating profile. Please try again.
+                    </div>
+
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" id="fullName" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" id="emailAddress" placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Bio (Optional)</label>
+                            <textarea class="form-textarea" id="userBio" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            💾 Save Changes
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Notification Settings -->
+                <div class="settings-card">
+                    <h2 class="card-title">
+                        🔔 Notifications
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Email Notifications</div>
+                            <div class="setting-description">Receive updates about your presentations and account</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Marketing Emails</div>
+                            <div class="setting-description">Receive tips, updates, and promotional content</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="marketingEmails">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Weekly Summary</div>
+                            <div class="setting-description">Get a weekly summary of your presentation activity</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="weeklySummary" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Privacy Settings -->
+                <div class="settings-card">
+                    <h2 class="card-title">
+                        🔒 Privacy & Security
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Profile Visibility</div>
+                            <div class="setting-description">Make your profile visible to other users</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="profileVisibility">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Analytics Tracking</div>
+                            <div class="setting-description">Help us improve by sharing anonymous usage data</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="analyticsTracking" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Data Processing</div>
+                            <div class="setting-description">Allow AI processing of your content for improvements</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="dataProcessing" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Account Management -->
+                <div class="settings-card">
+                    <h2 class="card-title">
+                        ⚙️ Account Management
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Change Password</div>
+                            <div class="setting-description">Update your account password</div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="changePassword()">
+                            🔑 Change
+                        </button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Two-Factor Authentication</div>
+                            <div class="setting-description">Add an extra layer of security to your account</div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="setupTwoFactor()">
+                            🛡️ Setup
+                        </button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Export Data</div>
+                            <div class="setting-description">Download a copy of your data</div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="exportData()">
+                            📥 Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Subscription Management -->
+                <div class="settings-card">
+                    <h2 class="card-title">
+                        💎 Subscription
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Current Plan</div>
+                            <div class="setting-description" id="currentPlanDescription">Free Plan</div>
+                        </div>
+                        <button class="btn btn-primary" onclick="upgradePlan()">
+                            🚀 Upgrade
+                        </button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Billing Information</div>
+                            <div class="setting-description">Manage your payment methods</div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="manageBilling()">
+                            💳 Manage
+                        </button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Cancel Subscription</div>
+                            <div class="setting-description">Cancel your current subscription</div>
+                        </div>
+                        <button class="btn btn-danger" onclick="cancelSubscription()">
+                            ❌ Cancel
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="settings-card danger-zone">
+                    <h2 class="card-title">
+                        ⚠️ Danger Zone
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <div class="setting-label">Delete Account</div>
+                            <div class="setting-description">Permanently delete your account and all data</div>
+                        </div>
+                        <button class="btn btn-danger" onclick="deleteAccount()">
+                            🗑️ Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Load current settings
+        function loadSettings() {
+            const userName = localStorage.getItem('userName') || localStorage.getItem('otisUserEmail')?.split('@')[0] || '';
+            const userEmail = localStorage.getItem('userEmail') || localStorage.getItem('otisUserEmail') || '';
+            const userBio = localStorage.getItem('userBio') || '';
+            const subscriptionPlan = localStorage.getItem('userSubscriptionPlan') || 'free';
+            
+            // Load profile data
+            document.getElementById('fullName').value = userName;
+            document.getElementById('emailAddress').value = userEmail;
+            document.getElementById('userBio').value = userBio;
+            
+            // Load notification settings
+            document.getElementById('emailNotifications').checked = localStorage.getItem('emailNotifications') !== 'false';
+            document.getElementById('marketingEmails').checked = localStorage.getItem('marketingEmails') === 'true';
+            document.getElementById('weeklySummary').checked = localStorage.getItem('weeklySummary') !== 'false';
+            
+            // Load privacy settings
+            document.getElementById('profileVisibility').checked = localStorage.getItem('profileVisibility') === 'true';
+            document.getElementById('analyticsTracking').checked = localStorage.getItem('analyticsTracking') !== 'false';
+            document.getElementById('dataProcessing').checked = localStorage.getItem('dataProcessing') !== 'false';
+            
+            // Update subscription info
+            updateSubscriptionInfo(subscriptionPlan);
+        }
+
+        function updateSubscriptionInfo(plan) {
+            const planDescription = document.getElementById('currentPlanDescription');
+            
+            switch(plan) {
+                case 'starter':
+                    planDescription.textContent = 'Starter Plan - $3.99/month';
+                    break;
+                case 'pro':
+                    planDescription.textContent = 'Pro Plan - $17.50/month';
+                    break;
+                case 'yearly_starter':
+                    planDescription.textContent = 'Starter Plan - $47.88/year';
+                    break;
+                case 'yearly_pro':
+                    planDescription.textContent = 'Pro Plan - $39.99/year';
+                    break;
+                default:
+                    planDescription.textContent = 'Free Plan';
+            }
+        }
+
+        // Save profile changes
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const emailAddress = document.getElementById('emailAddress').value;
+            const userBio = document.getElementById('userBio').value;
+            
+            // Validate inputs
+            if (!fullName.trim()) {
+                showError('profileError', 'Please enter your full name.');
+                return;
+            }
+            
+            if (!emailAddress.trim() || !isValidEmail(emailAddress)) {
+                showError('profileError', 'Please enter a valid email address.');
+                return;
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('userName', fullName);
+            localStorage.setItem('userEmail', emailAddress);
+            localStorage.setItem('userBio', userBio);
+            
+            showSuccess('profileSuccess', 'Profile updated successfully!');
+            
+            // Track profile update
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'profile_updated', {
+                    event_category: 'engagement',
+                    event_label: 'settings_page'
+                });
+            }
+        });
+
+        // Save notification settings
+        document.getElementById('emailNotifications').addEventListener('change', function() {
+            localStorage.setItem('emailNotifications', this.checked);
+        });
+
+        document.getElementById('marketingEmails').addEventListener('change', function() {
+            localStorage.setItem('marketingEmails', this.checked);
+        });
+
+        document.getElementById('weeklySummary').addEventListener('change', function() {
+            localStorage.setItem('weeklySummary', this.checked);
+        });
+
+        // Save privacy settings
+        document.getElementById('profileVisibility').addEventListener('change', function() {
+            localStorage.setItem('profileVisibility', this.checked);
+        });
+
+        document.getElementById('analyticsTracking').addEventListener('change', function() {
+            localStorage.setItem('analyticsTracking', this.checked);
+        });
+
+        document.getElementById('dataProcessing').addEventListener('change', function() {
+            localStorage.setItem('dataProcessing', this.checked);
+        });
+
+        function showSuccess(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.style.display = 'block';
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 3000);
+        }
+
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.style.display = 'block';
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 3000);
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function changePassword() {
+            alert('Password change functionality would be implemented here. This would redirect to a secure password change form.');
+        }
+
+        function setupTwoFactor() {
+            alert('Two-factor authentication setup would be implemented here. This would guide users through enabling 2FA.');
+        }
+
+        function exportData() {
+            const presentations = JSON.parse(localStorage.getItem('userPresentations') || '[]');
+            const userData = {
+                profile: {
+                    name: localStorage.getItem('userName') || localStorage.getItem('otisUserEmail')?.split('@')[0] || 'User',
+                    email: localStorage.getItem('userEmail') || localStorage.getItem('otisUserEmail') || 'user@example.com',
+                    bio: localStorage.getItem('userBio') || '',
+                    subscription: localStorage.getItem('userSubscriptionPlan') || 'free',
+                    memberSince: localStorage.getItem('otisEmailCaptureDate')
+                },
+                settings: {
+                    emailNotifications: localStorage.getItem('emailNotifications') !== 'false',
+                    marketingEmails: localStorage.getItem('marketingEmails') === 'true',
+                    weeklySummary: localStorage.getItem('weeklySummary') !== 'false',
+                    profileVisibility: localStorage.getItem('profileVisibility') === 'true',
+                    analyticsTracking: localStorage.getItem('analyticsTracking') !== 'false',
+                    dataProcessing: localStorage.getItem('dataProcessing') !== 'false'
+                },
+                presentations: presentations,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(userData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `otis-settings-export-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            alert('Your settings and data have been exported successfully!');
+        }
+
+        function upgradePlan() {
+            window.location.href = 'pricing.html';
+        }
+
+        function manageBilling() {
+            alert('Billing management would be implemented here. This would redirect to a billing portal.');
+        }
+
+        function cancelSubscription() {
+            if (confirm('Are you sure you want to cancel your subscription? You will lose access to premium features.')) {
+                localStorage.setItem('userSubscriptionPlan', 'free');
+                updateSubscriptionInfo('free');
+                alert('Your subscription has been cancelled. You now have access to free features only.');
+            }
+        }
+
+        function deleteAccount() {
+            const confirmMessage = 'Are you sure you want to delete your account? This action cannot be undone and will permanently remove all your data.';
+            
+            if (confirm(confirmMessage)) {
+                const finalConfirm = confirm('This is your final warning. Click OK to permanently delete your account and all associated data.');
+                
+                if (finalConfirm) {
+                    // Clear all user data
+                    localStorage.clear();
+                    
+                    // Track account deletion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'account_deleted', {
+                            event_category: 'engagement',
+                            event_label: 'settings_page'
+                        });
+                    }
+                    
+                    alert('Your account has been deleted. You will be redirected to the home page.');
+                    window.location.href = 'index-namecheap.html';
+                }
+            }
+        }
+
+        // Initialize page
+        window.addEventListener('load', function() {
+            loadSettings();
+            
+            // Initialize loading animation
+            const loadingElements = document.querySelectorAll('.loading');
+            loadingElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Track page view
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: 'Settings',
+                page_location: window.location.href
+            });
+        }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTDE2HXY86"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JTDE2HXY86');
+    </script>
+</body>
+</html>

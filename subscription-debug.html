@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Debug Tool - OTIS</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .debug-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+        }
+        .debug-section h3 {
+            margin-top: 0;
+            color: #555;
+        }
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        button {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #7c3aed;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .success {
+            background: #f0fdf4;
+            border: 1px solid #22c55e;
+            color: #166534;
+        }
+        .error {
+            background: #fef2f2;
+            border: 1px solid #ef4444;
+            color: #dc2626;
+        }
+        .info {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            color: #1e40af;
+        }
+        .local-storage {
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Subscription Debug Tool</h1>
+        
+        <div class="debug-section">
+            <h3>1. Check Local Storage</h3>
+            <p>View current user data stored in browser:</p>
+            <button onclick="checkLocalStorage()">Check Local Storage</button>
+            <div id="localStorageResult" class="result" style="display: none;"></div>
+        </div>
+
+        <div class="debug-section">
+            <h3>2. Test Subscription API</h3>
+            <p>Test the subscription checking API with an email:</p>
+            <input type="email" id="testEmail" placeholder="Enter email to test" value="">
+            <button onclick="testSubscriptionAPI()">Test API</button>
+            <div id="apiResult" class="result" style="display: none;"></div>
+        </div>
+
+        <div class="debug-section">
+            <h3>3. Manual Subscription Check</h3>
+            <p>Manually check subscription status for current user:</p>
+            <button onclick="manualSubscriptionCheck()">Check Current User</button>
+            <div id="manualResult" class="result" style="display: none;"></div>
+        </div>
+
+        <div class="debug-section">
+            <h3>4. Clear Local Storage</h3>
+            <p>Clear all stored user data (use with caution):</p>
+            <button onclick="clearLocalStorage()" style="background: #ef4444;">Clear All Data</button>
+            <div id="clearResult" class="result" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Check local storage
+        function checkLocalStorage() {
+            const result = document.getElementById('localStorageResult');
+            const userEmail = localStorage.getItem('userEmail') || localStorage.getItem('otisUserEmail');
+            const subscriptionPlan = localStorage.getItem('userSubscriptionPlan');
+            const subscriptionDate = localStorage.getItem('subscriptionDate');
+            const subscriptionStatus = localStorage.getItem('subscriptionStatus');
+            const userName = localStorage.getItem('userName');
+            
+            const data = {
+                userEmail: userEmail || 'Not found',
+                userName: userName || 'Not found',
+                subscriptionPlan: subscriptionPlan || 'Not found',
+                subscriptionDate: subscriptionDate || 'Not found',
+                subscriptionStatus: subscriptionStatus || 'Not found',
+                allKeys: Object.keys(localStorage)
+            };
+            
+            result.className = 'result local-storage';
+            result.textContent = JSON.stringify(data, null, 2);
+            result.style.display = 'block';
+        }
+
+        // Test subscription API
+        async function testSubscriptionAPI() {
+            const email = document.getElementById('testEmail').value;
+            const result = document.getElementById('apiResult');
+            
+            if (!email) {
+                result.className = 'result error';
+                result.textContent = 'Please enter an email address';
+                result.style.display = 'block';
+                return;
+            }
+
+            result.className = 'result info';
+            result.textContent = 'Testing API...';
+            result.style.display = 'block';
+
+            try {
+                const response = await fetch('/api/check-subscription', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    result.className = 'result success';
+                    result.textContent = `API Response:\n${JSON.stringify(data, null, 2)}`;
+                } else {
+                    result.className = 'result error';
+                    result.textContent = `API Error (${response.status}):\n${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                result.className = 'result error';
+                result.textContent = `Network Error:\n${error.message}`;
+            }
+        }
+
+        // Manual subscription check
+        async function manualSubscriptionCheck() {
+            const result = document.getElementById('manualResult');
+            const userEmail = localStorage.getItem('userEmail') || localStorage.getItem('otisUserEmail');
+            
+            if (!userEmail) {
+                result.className = 'result error';
+                result.textContent = 'No user email found in local storage';
+                result.style.display = 'block';
+                return;
+            }
+
+            result.className = 'result info';
+            result.textContent = `Checking subscription for: ${userEmail}\n\nPlease wait...`;
+            result.style.display = 'block';
+
+            try {
+                const response = await fetch('/api/check-subscription', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: userEmail })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    if (data.isSubscribed) {
+                        result.className = 'result success';
+                        result.textContent = `✅ SUBSCRIBED!\n\nPlan: ${data.plan}\nSubscription Date: ${data.subscriptionDate}\nStatus: ${data.status}\nFeatures: ${data.features.join(', ')}`;
+                        
+                        // Update local storage
+                        localStorage.setItem('userSubscriptionPlan', data.plan);
+                        localStorage.setItem('subscriptionDate', data.subscriptionDate);
+                        localStorage.setItem('subscriptionStatus', 'active');
+                    } else {
+                        result.className = 'result error';
+                        result.textContent = `❌ NOT SUBSCRIBED\n\nMessage: ${data.message || 'No active subscription found'}`;
+                        
+                        // Update local storage
+                        localStorage.setItem('userSubscriptionPlan', 'free');
+                        localStorage.removeItem('subscriptionDate');
+                        localStorage.setItem('subscriptionStatus', 'free');
+                    }
+                } else {
+                    result.className = 'result error';
+                    result.textContent = `API Error (${response.status}):\n${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                result.className = 'result error';
+                result.textContent = `Network Error:\n${error.message}`;
+            }
+        }
+
+        // Clear local storage
+        function clearLocalStorage() {
+            if (confirm('Are you sure you want to clear all local storage data? This will sign you out.')) {
+                localStorage.clear();
+                const result = document.getElementById('clearResult');
+                result.className = 'result success';
+                result.textContent = '✅ Local storage cleared successfully!';
+                result.style.display = 'block';
+            }
+        }
+
+        // Auto-populate email if available
+        window.onload = function() {
+            const userEmail = localStorage.getItem('userEmail') || localStorage.getItem('otisUserEmail');
+            if (userEmail) {
+                document.getElementById('testEmail').value = userEmail;
+            }
+        };
+    </script>
+</body>
+</html>

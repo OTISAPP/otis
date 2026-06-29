@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Otis AI Presentation Builder</title>
+    <meta name="description" content="View and manage your Otis profile information, subscription details, and account settings.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #111827;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .back-btn {
+            background: #f3f4f6;
+            color: #374151;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            background: #e5e7eb;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .profile-header {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-details h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .profile-email {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .subscription-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .subscription-badge.free {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .subscription-badge.starter {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+        }
+
+        .subscription-badge.pro {
+            background: rgba(168, 85, 247, 0.1);
+            color: #8b5cf6;
+        }
+
+        .member-since {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #8b5cf6;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #7c3aed;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        /* Profile Sections */
+        .profile-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .info-value {
+            color: #6b7280;
+        }
+
+        .edit-btn {
+            background: none;
+            border: none;
+            color: #8b5cf6;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .edit-btn:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-actions {
+                justify-content: center;
+            }
+
+            .profile-sections {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header {
+                padding: 24px;
+            }
+
+            .section-card {
+                padding: 24px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="dashboard.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="favicon.png" alt="Otis Logo" width="40" height="40">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Otis</h1>
+                        <p>AI Presentation Builder</p>
+                    </div>
+                </a>
+                <a href="dashboard.html" class="back-btn">
+                    ← Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content loading">
+        <div class="container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-info">
+                    <div class="profile-avatar" id="profileAvatar">U</div>
+                    <div class="profile-details">
+                        <h1 id="profileName">User Name</h1>
+                        <div class="profile-email" id="profileEmail">user@example.com</div>
+                        <div class="subscription-badge free" id="subscriptionBadge">Free Plan</div>
+                        <div class="member-since">Member since <span id="memberSince">January 2025</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalPresentations">0</div>
+                        <div class="stat-label">Presentations Created</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalSlides">0</div>
+                        <div class="stat-label">Total Slides</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="templatesUsed">0</div>
+                        <div class="stat-label">Templates Used</div>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <a href="settings.html" class="action-btn btn-primary">
+                        ⚙️ Edit Profile
+                    </a>
+                    <a href="pricing.html" class="action-btn btn-secondary">
+                        💎 Upgrade Plan
+                    </a>
+                    <button class="action-btn btn-danger" onclick="deleteAccount()">
+                        🗑️ Delete Account
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Sections -->
+            <div class="profile-sections">
+                <!-- Account Information -->
+                <div class="section-card">
+                    <h2 class="section-title">Account Information</h2>
+                    <div class="info-item">
+                        <span class="info-label">Full Name</span>
+                        <span class="info-value" id="fullName">User Name</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email Address</span>
+                        <span class="info-value" id="emailAddress">user@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Account Type</span>
+                        <span class="info-value" id="accountType">Free</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Member Since</span>
+                        <span class="info-value" id="memberSinceDetail">January 13, 2025</span>
+                    </div>
+                </div>
+
+                <!-- Subscription Details -->
+                <div class="section-card">
+                    <h2 class="section-title">Subscription Details</h2>
+                    <div class="info-item">
+                        <span class="info-label">Current Plan</span>
+                        <span class="info-value" id="currentPlan">Free</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Billing Cycle</span>
+                        <span class="info-value" id="billingCycle">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Next Billing Date</span>
+                        <span class="info-value" id="nextBilling">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Plan Features</span>
+                        <span class="info-value" id="planFeatures">Basic features</span>
+                    </div>
+                </div>
+
+                <!-- Usage Statistics -->
+                <div class="section-card">
+                    <h2 class="section-title">Usage Statistics</h2>
+                    <div class="info-item">
+                        <span class="info-label">Presentations Created</span>
+                        <span class="info-value" id="presentationsCreated">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Templates Used</span>
+                        <span class="info-value" id="templatesUsedDetail">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Activity</span>
+                        <span class="info-value" id="lastActivity">Today</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Storage Used</span>
+                        <span class="info-value" id="storageUsed">0 MB</span>
+                    </div>
+                </div>
+
+                <!-- Security & Privacy -->
+                <div class="section-card">
+                    <h2 class="section-title">Security & Privacy</h2>
+                    <div class="info-item">
+                        <span class="info-label">Password</span>
+                        <span class="info-value">••••••••</span>
+                        <button class="edit-btn" onclick="changePassword()">Change</button>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Two-Factor Auth</span>
+                        <span class="info-value" id="twoFactorStatus">Disabled</span>
+                        <button class="edit-btn" onclick="toggleTwoFactor()">Enable</button>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email Notifications</span>
+                        <span class="info-value" id="emailNotifications">Enabled</span>
+                        <button class="edit-btn" onclick="toggleNotifications()">Manage</button>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Data Export</span>
+                        <span class="info-value">Available</span>
+                        <button class="edit-btn" onclick="exportData()">Export</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Load user data and populate profile
+        function loadProfileData() {
+            const userName = localStorage.getItem('userName') || localStorage.getItem('otisUserEmail')?.split('@')[0] || 'User';
+            const userEmail = localStorage.getItem('userEmail') || localStorage.getItem('otisUserEmail') || 'user@example.com';
+            const userPicture = localStorage.getItem('userPicture');
+            const subscriptionPlan = localStorage.getItem('userSubscriptionPlan') || 'free';
+            const emailCaptureDate = localStorage.getItem('otisEmailCaptureDate');
+            
+            // Update profile header
+            document.getElementById('profileName').textContent = userName;
+            document.getElementById('profileEmail').textContent = userEmail;
+            document.getElementById('fullName').textContent = userName;
+            document.getElementById('emailAddress').textContent = userEmail;
+            
+            // Update profile avatar
+            const avatar = document.getElementById('profileAvatar');
+            if (userPicture) {
+                avatar.style.backgroundImage = `url(${userPicture})`;
+                avatar.textContent = '';
+            } else {
+                avatar.textContent = userName.charAt(0).toUpperCase();
+            }
+            
+            // Update subscription information
+            updateSubscriptionInfo(subscriptionPlan);
+            
+            // Update member since date
+            if (emailCaptureDate) {
+                const date = new Date(emailCaptureDate);
+                const memberSince = date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                document.getElementById('memberSince').textContent = memberSince;
+                document.getElementById('memberSinceDetail').textContent = memberSince;
+            }
+            
+            // Load usage statistics
+            loadUsageStatistics();
+        }
+
+        function updateSubscriptionInfo(plan) {
+            const badge = document.getElementById('subscriptionBadge');
+            const currentPlan = document.getElementById('currentPlan');
+            const accountType = document.getElementById('accountType');
+            const planFeatures = document.getElementById('planFeatures');
+            const billingCycle = document.getElementById('billingCycle');
+            const nextBilling = document.getElementById('nextBilling');
+            
+            switch(plan) {
+                case 'starter':
+                    badge.textContent = 'Starter Plan';
+                    badge.className = 'subscription-badge starter';
+                    currentPlan.textContent = 'Starter';
+                    accountType.textContent = 'Starter';
+                    planFeatures.textContent = '25 presentations, Basic templates, Email support';
+                    billingCycle.textContent = 'Monthly';
+                    nextBilling.textContent = 'Next month';
+                    break;
+                case 'pro':
+                    badge.textContent = 'Pro Plan';
+                    badge.className = 'subscription-badge pro';
+                    currentPlan.textContent = 'Pro';
+                    accountType.textContent = 'Pro';
+                    planFeatures.textContent = 'Unlimited presentations, Premium templates, Priority support';
+                    billingCycle.textContent = 'Monthly';
+                    nextBilling.textContent = 'Next month';
+                    break;
+                case 'yearly_starter':
+                    badge.textContent = 'Starter (Yearly)';
+                    badge.className = 'subscription-badge starter';
+                    currentPlan.textContent = 'Starter (Yearly)';
+                    accountType.textContent = 'Starter';
+                    planFeatures.textContent = '25 presentations, Basic templates, Email support';
+                    billingCycle.textContent = 'Yearly';
+                    nextBilling.textContent = 'Next year';
+                    break;
+                case 'yearly_pro':
+                    badge.textContent = 'Pro (Yearly)';
+                    badge.className = 'subscription-badge pro';
+                    currentPlan.textContent = 'Pro (Yearly)';
+                    accountType.textContent = 'Pro';
+                    planFeatures.textContent = 'Unlimited presentations, Premium templates, Priority support';
+                    billingCycle.textContent = 'Yearly';
+                    nextBilling.textContent = 'Next year';
+                    break;
+                default:
+                    badge.textContent = 'Free Plan';
+                    badge.className = 'subscription-badge free';
+                    currentPlan.textContent = 'Free';
+                    accountType.textContent = 'Free';
+                    planFeatures.textContent = '5 presentations, Basic templates, Community support';
+                    billingCycle.textContent = '-';
+                    nextBilling.textContent = '-';
+            }
+        }
+
+        function loadUsageStatistics() {
+            const presentations = JSON.parse(localStorage.getItem('userPresentations') || '[]');
+            const totalPresentations = presentations.length;
+            const totalSlides = presentations.reduce((total, presentation) => {
+                return total + (presentation.slides ? presentation.slides.length : 0);
+            }, 0);
+            const templatesUsed = new Set(presentations.map(p => p.template)).size;
+            
+            document.getElementById('totalPresentations').textContent = totalPresentations;
+            document.getElementById('totalSlides').textContent = totalSlides;
+            document.getElementById('templatesUsed').textContent = templatesUsed;
+            document.getElementById('presentationsCreated').textContent = totalPresentations;
+            document.getElementById('templatesUsedDetail').textContent = templatesUsed;
+            
+            // Calculate storage used (rough estimate)
+            const storageUsed = Math.round((JSON.stringify(presentations).length / 1024) * 100) / 100;
+            document.getElementById('storageUsed').textContent = `${storageUsed} KB`;
+        }
+
+        function deleteAccount() {
+            const confirmMessage = 'Are you sure you want to delete your account? This action cannot be undone and will permanently remove all your data.';
+            
+            if (confirm(confirmMessage)) {
+                const finalConfirm = confirm('This is your final warning. Click OK to permanently delete your account and all associated data.');
+                
+                if (finalConfirm) {
+                    // Clear all user data
+                    localStorage.clear();
+                    
+                    // Track account deletion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'account_deleted', {
+                            event_category: 'engagement',
+                            event_label: 'profile_page'
+                        });
+                    }
+                    
+                    alert('Your account has been deleted. You will be redirected to the home page.');
+                    window.location.href = 'index-namecheap.html';
+                }
+            }
+        }
+
+        function changePassword() {
+            alert('Password change functionality would be implemented here. This would typically redirect to a secure password change form.');
+        }
+
+        function toggleTwoFactor() {
+            alert('Two-factor authentication setup would be implemented here. This would guide users through enabling 2FA.');
+        }
+
+        function toggleNotifications() {
+            alert('Email notification preferences would be managed here. This would open a notification settings modal.');
+        }
+
+        function exportData() {
+            const presentations = JSON.parse(localStorage.getItem('userPresentations') || '[]');
+            const userData = {
+                profile: {
+                    name: localStorage.getItem('userName') || localStorage.getItem('otisUserEmail')?.split('@')[0] || 'User',
+                    email: localStorage.getItem('userEmail') || localStorage.getItem('otisUserEmail') || 'user@example.com',
+                    subscription: localStorage.getItem('userSubscriptionPlan') || 'free',
+                    memberSince: localStorage.getItem('otisEmailCaptureDate')
+                },
+                presentations: presentations,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(userData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `otis-data-export-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            alert('Your data has been exported successfully!');
+        }
+
+        // Initialize page
+        window.addEventListener('load', function() {
+            loadProfileData();
+            
+            // Initialize loading animation
+            const loadingElements = document.querySelectorAll('.loading');
+            loadingElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Track page view
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: 'Profile',
+                page_location: window.location.href
+            });
+        }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTDE2HXY86"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JTDE2HXY86');
+    </script>
+</body>
+</html>
